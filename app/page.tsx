@@ -23,20 +23,22 @@ export default function Home() {
           overflow: hidden;
           color: #071a3d;
           background:
-            radial-gradient(circle at 15% 8%, rgba(37, 99, 235, 0.16), transparent 26%),
-            radial-gradient(circle at 90% 18%, rgba(56, 189, 248, 0.30), transparent 31%),
-            linear-gradient(135deg, #ffffff 0%, #f7fbff 40%, #e8f3ff 100%);
+            radial-gradient(circle at 12% 10%, rgba(37, 99, 235, 0.12), transparent 27%),
+            radial-gradient(circle at 88% 16%, rgba(56, 189, 248, 0.30), transparent 34%),
+            linear-gradient(135deg, #ffffff 0%, #f8fbff 42%, #eaf4ff 100%);
         }
 
         .rio-bg {
           position: absolute;
           inset: 0;
-          background:
-            linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.92) 32%, rgba(255,255,255,.42) 57%, rgba(255,255,255,.10) 100%),
-            url("/rio-bg.png") center right / cover no-repeat;
-          opacity: 0.92;
-          transform: scale(1.04);
-          animation: cinematicZoom 22s ease-in-out infinite alternate;
+          background-image:
+            linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.94) 33%, rgba(255,255,255,.48) 58%, rgba(255,255,255,.06) 100%),
+            url("/rio-bg.png");
+          background-position: center center;
+          background-size: cover;
+          opacity: .95;
+          transform: scale(1.045);
+          animation: cinematicZoom 24s ease-in-out infinite alternate;
           will-change: transform;
         }
 
@@ -45,84 +47,81 @@ export default function Home() {
           position: absolute;
           inset: 0;
           background:
-            radial-gradient(circle at 75% 30%, rgba(255,255,255,.34), transparent 22%),
-            linear-gradient(120deg, transparent 20%, rgba(255,255,255,.38) 38%, transparent 55%);
+            linear-gradient(115deg, transparent 0%, rgba(255,255,255,.42) 38%, transparent 62%),
+            radial-gradient(circle at 72% 22%, rgba(255,255,255,.45), transparent 28%);
           mix-blend-mode: screen;
-          animation: lightSweep 9s ease-in-out infinite;
+          animation: lightSweep 8s ease-in-out infinite;
         }
 
-        .animated-water {
+        .rio-bg::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background:
+            linear-gradient(180deg, rgba(255,255,255,0) 54%, rgba(219,234,254,.48) 86%, rgba(219,234,254,.82) 100%);
+        }
+
+        .wave-layer {
           position: absolute;
           left: -5%;
           right: -5%;
-          bottom: -2px;
-          height: 31vh;
-          background:
-            linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(219,234,254,.64) 42%, rgba(37,99,235,.22) 100%);
-          clip-path: polygon(0 34%, 11% 45%, 24% 36%, 37% 48%, 50% 38%, 63% 50%, 77% 37%, 89% 47%, 100% 35%, 100% 100%, 0 100%);
-          animation: waveMove 7s ease-in-out infinite alternate;
+          bottom: -8px;
+          height: 30vh;
           z-index: 1;
+          background:
+            linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(219,234,254,.62) 45%, rgba(37,99,235,.20) 100%);
+          clip-path: polygon(0 36%, 10% 46%, 22% 38%, 34% 48%, 47% 39%, 60% 50%, 75% 37%, 88% 47%, 100% 35%, 100% 100%, 0 100%);
+          animation: waveMove 7s ease-in-out infinite alternate;
         }
 
-        .animated-water::before,
-        .animated-water::after {
-          content: "";
+        .wave-line,
+        .wave-line.two,
+        .wave-line.three {
           position: absolute;
-          inset: 18% -10% auto -10%;
-          height: 120px;
-          border-top: 1px solid rgba(37,99,235,.20);
-          border-radius: 50%;
-          animation: waveLine 6s ease-in-out infinite alternate;
-        }
-
-        .animated-water::after {
-          inset: 26% -14% auto -14%;
-          border-top-color: rgba(56,189,248,.28);
-          animation-duration: 8s;
-          animation-direction: alternate-reverse;
-        }
-
-        .sky-lines {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          z-index: 2;
-          overflow: hidden;
-        }
-
-        .sky-line {
-          position: absolute;
-          width: 720px;
-          height: 180px;
-          border-top: 1px solid rgba(37,99,235,.20);
-          border-radius: 50%;
+          width: 760px;
+          height: 210px;
           right: -120px;
-          top: 120px;
-          transform: rotate(-8deg);
-          animation: lineFloat 8s ease-in-out infinite alternate;
+          top: 88px;
+          border-top: 1px solid rgba(37, 99, 235, .20);
+          border-radius: 50%;
+          transform: rotate(-9deg);
+          z-index: 2;
+          animation: lineFloat 10s ease-in-out infinite alternate;
+          pointer-events: none;
         }
 
-        .sky-line.two {
-          top: 155px;
-          right: -170px;
-          width: 860px;
-          opacity: .68;
-          animation-duration: 11s;
+        .wave-line.two {
+          width: 890px;
+          top: 120px;
+          right: -160px;
+          opacity: .58;
+          animation-duration: 13s;
+        }
+
+        .wave-line.three {
+          width: 940px;
+          top: auto;
+          bottom: 96px;
+          right: -220px;
+          opacity: .48;
+          animation-duration: 16s;
+          animation-direction: alternate-reverse;
         }
 
         .dot-grid {
           position: absolute;
-          width: 150px;
-          height: 150px;
-          left: 41%;
+          width: 160px;
+          height: 160px;
+          left: 42%;
           top: 20%;
-          background-image: radial-gradient(rgba(37,99,235,.24) 2px, transparent 2px);
-          background-size: 26px 26px;
-          animation: dotFloat 5.5s ease-in-out infinite alternate;
+          background-image: radial-gradient(rgba(37,99,235,.25) 2px, transparent 2px);
+          background-size: 28px 28px;
+          animation: dotFloat 6s ease-in-out infinite alternate;
           z-index: 2;
+          pointer-events: none;
         }
 
-        .container {
+        .shell {
           width: min(1240px, calc(100% - 48px));
           min-height: 100vh;
           margin: 0 auto;
@@ -130,28 +129,22 @@ export default function Home() {
           z-index: 3;
           display: flex;
           flex-direction: column;
-          padding: 32px 0 22px;
+          padding: 34px 0 20px;
         }
 
-        .brand {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-        }
-
-        .brand-logo {
-          width: min(330px, 72vw);
+        .logo {
+          width: min(338px, 76vw);
           height: auto;
-          object-fit: contain;
+          display: block;
           filter: drop-shadow(0 18px 28px rgba(15, 23, 42, .08));
         }
 
         .hero {
           flex: 1;
           display: grid;
-          grid-template-columns: minmax(0, 650px) 1fr;
+          grid-template-columns: minmax(0, 690px) 1fr;
           align-items: center;
-          padding: 36px 0 68px;
+          padding: 52px 0 42px;
         }
 
         .badge {
@@ -161,11 +154,13 @@ export default function Home() {
           gap: 10px;
           border-radius: 999px;
           padding: 13px 18px;
-          margin-bottom: 26px;
-          background: rgba(219, 234, 254, .85);
+          margin-bottom: 28px;
+          background: rgba(219, 234, 254, .88);
           border: 1px solid rgba(37, 99, 235, .12);
           color: #0755d8;
-          font-weight: 850;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: .01em;
           box-shadow: 0 16px 35px rgba(37,99,235,.10);
           position: relative;
           overflow: hidden;
@@ -182,56 +177,54 @@ export default function Home() {
 
         h1 {
           margin: 0 0 24px;
-          font-size: clamp(58px, 7.5vw, 112px);
-          line-height: .88;
+          max-width: 680px;
+          font-size: clamp(58px, 7.4vw, 110px);
+          line-height: .89;
           letter-spacing: -.085em;
           color: #071a3d;
-          text-wrap: balance;
         }
 
-        .blue {
-          display: inline-block;
-          color: #0b63f6;
-          background: linear-gradient(135deg, #0a2b6b 0%, #075eea 55%, #38bdf8 100%);
+        .title-blue {
+          color: transparent;
+          background: linear-gradient(135deg, #08245c 0%, #075eea 55%, #38bdf8 100%);
           -webkit-background-clip: text;
           background-clip: text;
-          color: transparent;
           filter: drop-shadow(0 12px 26px rgba(37,99,235,.14));
         }
 
         .subtitle {
-          max-width: 640px;
+          max-width: 660px;
           margin: 0;
           color: #476188;
-          font-size: clamp(18px, 1.65vw, 23px);
+          font-size: clamp(18px, 1.7vw, 23px);
           line-height: 1.55;
         }
 
         .subtitle strong {
           color: #075eea;
-          font-weight: 900;
+          font-weight: 950;
         }
 
         .metrics {
           display: grid;
           grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: 16px;
+          gap: 18px;
           max-width: 710px;
-          margin-top: 44px;
+          margin-top: 42px;
         }
 
         .metric {
-          min-height: 136px;
+          min-height: 128px;
           display: flex;
           gap: 15px;
           align-items: center;
           border-radius: 24px;
-          background: rgba(255,255,255,.78);
-          border: 1px solid rgba(148, 163, 184, .18);
+          background: rgba(255,255,255,.82);
+          border: 1px solid rgba(148, 163, 184, .16);
           box-shadow: 0 24px 55px rgba(15, 23, 42, .08);
           backdrop-filter: blur(18px);
           -webkit-backdrop-filter: blur(18px);
-          padding: 20px;
+          padding: 19px;
           animation: cardFloat 5.5s ease-in-out infinite alternate;
         }
 
@@ -270,12 +263,12 @@ export default function Home() {
         .rio-message {
           justify-self: end;
           align-self: center;
-          width: min(420px, 100%);
-          margin-right: 2vw;
-          margin-top: -120px;
+          width: min(460px, 100%);
+          margin-right: 3vw;
+          margin-top: -128px;
           color: #08245c;
           font-family: "Segoe Script", "Brush Script MT", cursive;
-          font-size: clamp(28px, 3vw, 45px);
+          font-size: clamp(31px, 3.2vw, 48px);
           line-height: 1.35;
           transform: rotate(-2deg);
           text-shadow: 0 18px 35px rgba(255,255,255,.75);
@@ -289,7 +282,7 @@ export default function Home() {
         .rio-message::after {
           content: "";
           display: block;
-          width: 70%;
+          width: 75%;
           height: 2px;
           margin-top: 12px;
           background: linear-gradient(90deg, transparent, #0b63f6, transparent);
@@ -302,7 +295,7 @@ export default function Home() {
           grid-template-columns: repeat(4, minmax(0, 1fr));
           gap: 0;
           border-radius: 24px;
-          background: rgba(255,255,255,.86);
+          background: rgba(255,255,255,.90);
           border: 1px solid rgba(148, 163, 184, .20);
           box-shadow: 0 30px 70px rgba(15, 23, 42, .11);
           backdrop-filter: blur(22px);
@@ -350,10 +343,14 @@ export default function Home() {
         }
 
         .credit {
-          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 14px;
           color: #5a7197;
           font-size: 15px;
-          margin-top: 20px;
+          margin-top: 22px;
           position: relative;
           z-index: 5;
         }
@@ -368,14 +365,19 @@ export default function Home() {
           text-decoration: underline;
         }
 
+        .dev-icon {
+          font-weight: 950;
+          color: #075eea;
+        }
+
         @keyframes cinematicZoom {
-          0% { transform: scale(1.04) translate3d(0,0,0); }
-          100% { transform: scale(1.095) translate3d(-1.2%, .8%, 0); }
+          0% { transform: scale(1.045) translate3d(0,0,0); }
+          100% { transform: scale(1.09) translate3d(-1.1%, .8%, 0); }
         }
 
         @keyframes lightSweep {
           0%, 100% { opacity: .25; transform: translateX(-12%); }
-          50% { opacity: .75; transform: translateX(12%); }
+          50% { opacity: .72; transform: translateX(12%); }
         }
 
         @keyframes shimmer {
@@ -384,18 +386,13 @@ export default function Home() {
         }
 
         @keyframes waveMove {
-          0% { transform: translateX(-1.8%) translateY(0); }
-          100% { transform: translateX(1.8%) translateY(10px); }
-        }
-
-        @keyframes waveLine {
-          0% { transform: translateX(-2%) scaleX(1); }
-          100% { transform: translateX(2%) scaleX(1.08); }
+          0% { transform: translateX(-1.7%) translateY(0); }
+          100% { transform: translateX(1.7%) translateY(10px); }
         }
 
         @keyframes lineFloat {
-          0% { transform: translateY(0) rotate(-8deg); }
-          100% { transform: translateY(22px) rotate(-6deg); }
+          0% { transform: translateY(0) rotate(-9deg); }
+          100% { transform: translateY(24px) rotate(-7deg); }
         }
 
         @keyframes dotFloat {
@@ -416,12 +413,12 @@ export default function Home() {
         @media (max-width: 1050px) {
           .hero {
             grid-template-columns: 1fr;
-            padding-bottom: 42px;
+            padding-top: 44px;
           }
 
           .rio-message {
             justify-self: start;
-            margin: 38px 0 0;
+            margin: 42px 0 0;
           }
 
           .feature-strip {
@@ -439,15 +436,16 @@ export default function Home() {
         }
 
         @media (max-width: 720px) {
-          .container {
+          .shell {
             width: min(100% - 28px, 1240px);
             padding-top: 20px;
           }
 
           .rio-bg {
-            background:
-              linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.86) 38%, rgba(255,255,255,.34) 100%),
-              url("/rio-bg.png") center bottom / cover no-repeat;
+            background-image:
+              linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.88) 44%, rgba(255,255,255,.40) 100%),
+              url("/rio-bg.png");
+            background-position: center bottom;
           }
 
           h1 {
@@ -481,23 +479,26 @@ export default function Home() {
             margin-top: 34px;
           }
 
-          .brand-logo {
-            width: min(300px, 86vw);
+          .logo {
+            width: min(310px, 88vw);
+          }
+
+          .dot-grid {
+            display: none;
           }
         }
       `}</style>
 
       <div className="rio-bg" />
-      <div className="animated-water" />
-      <div className="sky-lines">
-        <div className="sky-line" />
-        <div className="sky-line two" />
-      </div>
+      <div className="wave-layer" />
+      <div className="wave-line" />
+      <div className="wave-line two" />
+      <div className="wave-line three" />
       <div className="dot-grid" />
 
-      <section className="container">
-        <header className="brand">
-          <img className="brand-logo" src="/logo.png" alt="Beleza Carioca" />
+      <section className="shell">
+        <header>
+          <img className="logo" src="/logo.png" alt="Beleza Carioca" />
         </header>
 
         <section className="hero">
@@ -505,7 +506,7 @@ export default function Home() {
             <div className="badge">🚧 Plataforma em construção</div>
 
             <h1>
-              Site no ar <span className="blue">em breve.</span>
+              Site no ar <span className="title-blue">em breve.</span>
             </h1>
 
             <p className="subtitle">
@@ -563,7 +564,7 @@ export default function Home() {
             <div className="feature-icon">🎧</div>
             <div>
               <strong>Suporte especializado</strong>
-              <p>Nossa equipe estará pronta para ajudar quando precisar.</p>
+              <p>Nossa equipe estará pronta para ajudar sempre que precisar.</p>
             </div>
           </div>
 
@@ -585,15 +586,16 @@ export default function Home() {
         </section>
 
         <footer className="credit">
-          Desenvolvido por{" "}
+          <span className="dev-icon">&lt;/&gt;</span>
+          <span>Desenvolvido por</span>
           <a
             href="https://www.instagram.com/gbdevapps/"
             target="_blank"
             rel="noreferrer"
           >
             Gabriel Gonçalves
-          </a>{" "}
-          ·{" "}
+          </a>
+          <span>|</span>
           <a
             href="https://www.instagram.com/gbdevapps/"
             target="_blank"
