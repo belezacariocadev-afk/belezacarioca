@@ -1,13 +1,10 @@
 export default function Home() {
   return (
-    <main className="bc-page">
+    <main className="page">
       <style>{`
-        * {
-          box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
-        html,
-        body {
+        html, body {
           margin: 0;
           padding: 0;
           background: #f8fbff;
@@ -17,113 +14,96 @@ export default function Home() {
           font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
 
-        .bc-page {
-          min-height: 100vh;
+        .page {
+          min-height: 100svh;
           position: relative;
           overflow: hidden;
           color: #071a3d;
-          background:
-            radial-gradient(circle at 12% 10%, rgba(37, 99, 235, 0.12), transparent 27%),
-            radial-gradient(circle at 88% 16%, rgba(56, 189, 248, 0.30), transparent 34%),
-            linear-gradient(135deg, #ffffff 0%, #f8fbff 42%, #eaf4ff 100%);
+          background: #f8fbff;
         }
 
-        .rio-bg {
+        .rio {
           position: absolute;
           inset: 0;
-          background-image:
-            linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.94) 33%, rgba(255,255,255,.48) 58%, rgba(255,255,255,.06) 100%),
-            url("/rio-bg.png");
-          background-position: center center;
-          background-size: cover;
-          opacity: .95;
-          transform: scale(1.045);
-          animation: cinematicZoom 24s ease-in-out infinite alternate;
+          background:
+            linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.92) 32%, rgba(255,255,255,.46) 57%, rgba(255,255,255,.06) 100%),
+            url("/rio-bg.svg") center right / cover no-repeat;
+          transform: scale(1.035);
+          animation: cinematic 24s ease-in-out infinite alternate;
           will-change: transform;
         }
 
-        .rio-bg::after {
+        .rio::after {
           content: "";
           position: absolute;
           inset: 0;
           background:
-            linear-gradient(115deg, transparent 0%, rgba(255,255,255,.42) 38%, transparent 62%),
-            radial-gradient(circle at 72% 22%, rgba(255,255,255,.45), transparent 28%);
+            radial-gradient(circle at 68% 25%, rgba(255,255,255,.58), transparent 24%),
+            linear-gradient(115deg, transparent 10%, rgba(255,255,255,.38) 40%, transparent 62%);
           mix-blend-mode: screen;
           animation: lightSweep 8s ease-in-out infinite;
         }
 
-        .rio-bg::before {
-          content: "";
+        .wave {
           position: absolute;
-          inset: 0;
-          background:
-            linear-gradient(180deg, rgba(255,255,255,0) 54%, rgba(219,234,254,.48) 86%, rgba(219,234,254,.82) 100%);
-        }
-
-        .wave-layer {
-          position: absolute;
-          left: -5%;
-          right: -5%;
+          left: -4%;
+          right: -4%;
           bottom: -8px;
           height: 30vh;
           z-index: 1;
-          background:
-            linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(219,234,254,.62) 45%, rgba(37,99,235,.20) 100%);
-          clip-path: polygon(0 36%, 10% 46%, 22% 38%, 34% 48%, 47% 39%, 60% 50%, 75% 37%, 88% 47%, 100% 35%, 100% 100%, 0 100%);
+          background: linear-gradient(180deg, transparent 0%, rgba(219,234,254,.62) 50%, rgba(37,99,235,.18) 100%);
+          clip-path: polygon(0 38%, 11% 48%, 24% 39%, 37% 50%, 50% 40%, 63% 51%, 77% 39%, 89% 49%, 100% 38%, 100% 100%, 0 100%);
           animation: waveMove 7s ease-in-out infinite alternate;
         }
 
-        .wave-line,
-        .wave-line.two,
-        .wave-line.three {
+        .line {
           position: absolute;
+          z-index: 2;
+          pointer-events: none;
           width: 760px;
           height: 210px;
           right: -120px;
           top: 88px;
-          border-top: 1px solid rgba(37, 99, 235, .20);
+          border-top: 1px solid rgba(37,99,235,.20);
           border-radius: 50%;
           transform: rotate(-9deg);
-          z-index: 2;
           animation: lineFloat 10s ease-in-out infinite alternate;
-          pointer-events: none;
         }
 
-        .wave-line.two {
-          width: 890px;
-          top: 120px;
-          right: -160px;
+        .line.two {
+          width: 900px;
+          top: 124px;
+          right: -165px;
           opacity: .58;
           animation-duration: 13s;
         }
 
-        .wave-line.three {
+        .line.three {
           width: 940px;
           top: auto;
-          bottom: 96px;
+          bottom: 100px;
           right: -220px;
           opacity: .48;
           animation-duration: 16s;
           animation-direction: alternate-reverse;
         }
 
-        .dot-grid {
+        .dots {
           position: absolute;
+          z-index: 2;
+          pointer-events: none;
           width: 160px;
           height: 160px;
           left: 42%;
-          top: 20%;
-          background-image: radial-gradient(rgba(37,99,235,.25) 2px, transparent 2px);
+          top: 21%;
+          background-image: radial-gradient(rgba(37,99,235,.24) 2px, transparent 2px);
           background-size: 28px 28px;
           animation: dotFloat 6s ease-in-out infinite alternate;
-          z-index: 2;
-          pointer-events: none;
         }
 
         .shell {
           width: min(1240px, calc(100% - 48px));
-          min-height: 100vh;
+          min-height: 100svh;
           margin: 0 auto;
           position: relative;
           z-index: 3;
@@ -136,7 +116,7 @@ export default function Home() {
           width: min(338px, 76vw);
           height: auto;
           display: block;
-          filter: drop-shadow(0 18px 28px rgba(15, 23, 42, .08));
+          filter: drop-shadow(0 18px 28px rgba(15,23,42,.08));
         }
 
         .hero {
@@ -155,8 +135,8 @@ export default function Home() {
           border-radius: 999px;
           padding: 13px 18px;
           margin-bottom: 28px;
-          background: rgba(219, 234, 254, .88);
-          border: 1px solid rgba(37, 99, 235, .12);
+          background: rgba(219,234,254,.88);
+          border: 1px solid rgba(37,99,235,.12);
           color: #0755d8;
           font-weight: 900;
           text-transform: uppercase;
@@ -171,7 +151,7 @@ export default function Home() {
           position: absolute;
           inset: 0;
           transform: translateX(-130%);
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,.85), transparent);
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,.88), transparent);
           animation: shimmer 3.2s ease-in-out infinite;
         }
 
@@ -184,7 +164,7 @@ export default function Home() {
           color: #071a3d;
         }
 
-        .title-blue {
+        .blue {
           color: transparent;
           background: linear-gradient(135deg, #08245c 0%, #075eea 55%, #38bdf8 100%);
           -webkit-background-clip: text;
@@ -219,9 +199,9 @@ export default function Home() {
           gap: 15px;
           align-items: center;
           border-radius: 24px;
-          background: rgba(255,255,255,.82);
-          border: 1px solid rgba(148, 163, 184, .16);
-          box-shadow: 0 24px 55px rgba(15, 23, 42, .08);
+          background: rgba(255,255,255,.84);
+          border: 1px solid rgba(148,163,184,.16);
+          box-shadow: 0 24px 55px rgba(15,23,42,.08);
           backdrop-filter: blur(18px);
           -webkit-backdrop-filter: blur(18px);
           padding: 19px;
@@ -260,7 +240,7 @@ export default function Home() {
           line-height: 1.35;
         }
 
-        .rio-message {
+        .rio-text {
           justify-self: end;
           align-self: center;
           width: min(460px, 100%);
@@ -275,11 +255,9 @@ export default function Home() {
           animation: messageFloat 6s ease-in-out infinite alternate;
         }
 
-        .rio-message span {
-          color: #075eea;
-        }
+        .rio-text span { color: #075eea; }
 
-        .rio-message::after {
+        .rio-text::after {
           content: "";
           display: block;
           width: 75%;
@@ -288,16 +266,15 @@ export default function Home() {
           background: linear-gradient(90deg, transparent, #0b63f6, transparent);
         }
 
-        .feature-strip {
+        .features {
           position: relative;
           z-index: 5;
           display: grid;
           grid-template-columns: repeat(4, minmax(0, 1fr));
-          gap: 0;
           border-radius: 24px;
           background: rgba(255,255,255,.90);
-          border: 1px solid rgba(148, 163, 184, .20);
-          box-shadow: 0 30px 70px rgba(15, 23, 42, .11);
+          border: 1px solid rgba(148,163,184,.20);
+          box-shadow: 0 30px 70px rgba(15,23,42,.11);
           backdrop-filter: blur(22px);
           -webkit-backdrop-filter: blur(22px);
           overflow: hidden;
@@ -309,12 +286,10 @@ export default function Home() {
           gap: 16px;
           align-items: center;
           padding: 24px;
-          border-right: 1px solid rgba(148, 163, 184, .18);
+          border-right: 1px solid rgba(148,163,184,.18);
         }
 
-        .feature:last-child {
-          border-right: 0;
-        }
+        .feature:last-child { border-right: 0; }
 
         .feature-icon {
           width: 58px;
@@ -361,28 +336,21 @@ export default function Home() {
           text-decoration: none;
         }
 
-        .credit a:hover {
-          text-decoration: underline;
-        }
+        .credit a:hover { text-decoration: underline; }
 
         .dev-icon {
           font-weight: 950;
           color: #075eea;
         }
 
-        @keyframes cinematicZoom {
-          0% { transform: scale(1.045) translate3d(0,0,0); }
-          100% { transform: scale(1.09) translate3d(-1.1%, .8%, 0); }
+        @keyframes cinematic {
+          0% { transform: scale(1.035) translate3d(0,0,0); }
+          100% { transform: scale(1.085) translate3d(-1.1%, .8%, 0); }
         }
 
         @keyframes lightSweep {
           0%, 100% { opacity: .25; transform: translateX(-12%); }
           50% { opacity: .72; transform: translateX(12%); }
-        }
-
-        @keyframes shimmer {
-          0% { transform: translateX(-130%); }
-          45%, 100% { transform: translateX(130%); }
         }
 
         @keyframes waveMove {
@@ -400,6 +368,11 @@ export default function Home() {
           100% { transform: translateY(18px); opacity: .28; }
         }
 
+        @keyframes shimmer {
+          0% { transform: translateX(-130%); }
+          45%, 100% { transform: translateX(130%); }
+        }
+
         @keyframes cardFloat {
           0% { transform: translateY(0); }
           100% { transform: translateY(-10px); }
@@ -410,28 +383,32 @@ export default function Home() {
           100% { transform: translateY(-14px) rotate(-1deg); }
         }
 
+        @media (prefers-reduced-motion: reduce) {
+          .rio, .rio::after, .wave, .line, .dots, .badge::after, .metric, .rio-text {
+            animation: none !important;
+          }
+        }
+
         @media (max-width: 1050px) {
           .hero {
             grid-template-columns: 1fr;
             padding-top: 44px;
           }
 
-          .rio-message {
+          .rio-text {
             justify-self: start;
             margin: 42px 0 0;
           }
 
-          .feature-strip {
+          .features {
             grid-template-columns: repeat(2, minmax(0, 1fr));
           }
 
-          .feature:nth-child(2) {
-            border-right: 0;
-          }
+          .feature:nth-child(2) { border-right: 0; }
 
           .feature:nth-child(1),
           .feature:nth-child(2) {
-            border-bottom: 1px solid rgba(148, 163, 184, .18);
+            border-bottom: 1px solid rgba(148,163,184,.18);
           }
         }
 
@@ -441,11 +418,14 @@ export default function Home() {
             padding-top: 20px;
           }
 
-          .rio-bg {
-            background-image:
-              linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.88) 44%, rgba(255,255,255,.40) 100%),
-              url("/rio-bg.png");
-            background-position: center bottom;
+          .rio {
+            background:
+              linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.90) 46%, rgba(255,255,255,.55) 100%),
+              url("/rio-bg.svg") center bottom / cover no-repeat;
+          }
+
+          .hero {
+            padding: 36px 0 34px;
           }
 
           h1 {
@@ -461,20 +441,18 @@ export default function Home() {
             min-height: 104px;
           }
 
-          .feature-strip {
+          .features {
             grid-template-columns: 1fr;
           }
 
           .feature {
             border-right: 0;
-            border-bottom: 1px solid rgba(148, 163, 184, .18);
+            border-bottom: 1px solid rgba(148,163,184,.18);
           }
 
-          .feature:last-child {
-            border-bottom: 0;
-          }
+          .feature:last-child { border-bottom: 0; }
 
-          .rio-message {
+          .rio-text {
             font-size: 30px;
             margin-top: 34px;
           }
@@ -483,18 +461,20 @@ export default function Home() {
             width: min(310px, 88vw);
           }
 
-          .dot-grid {
-            display: none;
+          .dots { display: none; }
+
+          .wave {
+            height: 22vh;
           }
         }
       `}</style>
 
-      <div className="rio-bg" />
-      <div className="wave-layer" />
-      <div className="wave-line" />
-      <div className="wave-line two" />
-      <div className="wave-line three" />
-      <div className="dot-grid" />
+      <div className="rio" />
+      <div className="wave" />
+      <div className="line" />
+      <div className="line two" />
+      <div className="line three" />
+      <div className="dots" />
 
       <section className="shell">
         <header>
@@ -506,7 +486,7 @@ export default function Home() {
             <div className="badge">🚧 Plataforma em construção</div>
 
             <h1>
-              Site no ar <span className="title-blue">em breve.</span>
+              Site no ar <span className="blue">em breve.</span>
             </h1>
 
             <p className="subtitle">
@@ -543,7 +523,7 @@ export default function Home() {
             </div>
           </div>
 
-          <aside className="rio-message">
+          <aside className="rio-text">
             Feito no <span>Rio</span>,<br />
             pensado para<br />
             transformar a<br />
@@ -551,7 +531,7 @@ export default function Home() {
           </aside>
         </section>
 
-        <section className="feature-strip">
+        <section className="features">
           <div className="feature">
             <div className="feature-icon">🛡️</div>
             <div>
