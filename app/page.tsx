@@ -8,16 +8,16 @@ export default function Home() {
 
         html,
         body {
-          width: 100%;
-          min-height: 100%;
           margin: 0;
           padding: 0;
+          width: 100%;
+          min-height: 100%;
           background: #eaf4ff;
         }
 
         body {
-          font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
           overflow: hidden;
+          font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
 
         .page {
@@ -29,154 +29,188 @@ export default function Home() {
           background: #eaf4ff;
         }
 
-        .art {
+        /* Fundo preenchendo a tela sem distorcer: fica desfocado atrás */
+        .bg-fill {
+          position: absolute;
+          inset: -26px;
+          background: url("/mockup-rio.png") center center / cover no-repeat;
+          filter: blur(24px) saturate(1.12);
+          transform: scale(1.06);
+          opacity: .52;
+          animation: bgMove 18s ease-in-out infinite alternate;
+          z-index: 0;
+        }
+
+        .bg-fill::after {
+          content: "";
           position: absolute;
           inset: 0;
-          overflow: hidden;
-          background: #eaf4ff;
+          background:
+            radial-gradient(circle at 75% 22%, rgba(255,255,255,.56), transparent 25%),
+            linear-gradient(180deg, rgba(255,255,255,.36), rgba(219,234,254,.42));
         }
 
-        .art img {
-          width: 100%;
-          height: 100%;
-          object-fit: fill;
+        /* Arte principal sem esticar */
+        .stage {
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          padding: 0;
+        }
+
+        .stage img {
+          width: 100vw;
+          height: 100vh;
+          height: 100svh;
+          object-fit: contain;
           object-position: center;
           display: block;
-          animation: bgBreath 16s ease-in-out infinite alternate;
-          transform-origin: 72% 38%;
-          will-change: transform, filter;
+          filter: drop-shadow(0 30px 80px rgba(15, 23, 42, .12));
+          animation: artFloat 16s ease-in-out infinite alternate;
+          will-change: transform;
+          z-index: 2;
         }
 
-        /* brilho de cinema passando no fundo */
-        .light-sweep {
+        /* Movimento profissional no fundo */
+        .shine {
           position: absolute;
-          inset: -25%;
-          z-index: 2;
+          inset: -30%;
+          z-index: 3;
           pointer-events: none;
           background: linear-gradient(
             115deg,
-            transparent 26%,
-            rgba(255,255,255,.08) 36%,
-            rgba(255,255,255,.55) 45%,
-            rgba(255,255,255,.10) 54%,
-            transparent 66%
+            transparent 28%,
+            rgba(255,255,255,.16) 39%,
+            rgba(255,255,255,.62) 47%,
+            rgba(255,255,255,.14) 55%,
+            transparent 68%
           );
           mix-blend-mode: screen;
-          animation: lightSweep 7s ease-in-out infinite;
+          animation: shineMove 7.5s ease-in-out infinite;
         }
 
-        /* aura azul na área do Cristo */
+        /* Glow sutil na estátua */
         .statue-glow {
           position: absolute;
-          right: 3.8%;
-          top: 9.5%;
-          width: 26vw;
-          height: 46vh;
-          z-index: 3;
+          z-index: 4;
+          right: 4.5%;
+          top: 8.5%;
+          width: 25vw;
+          height: 43vh;
           pointer-events: none;
           background:
-            radial-gradient(circle at 58% 18%, rgba(255,255,255,.72), transparent 15%),
-            radial-gradient(circle at 58% 28%, rgba(56,189,248,.36), transparent 36%),
-            radial-gradient(circle at 58% 42%, rgba(37,99,235,.18), transparent 54%);
-          filter: blur(2px);
+            radial-gradient(circle at 62% 14%, rgba(255,255,255,.82), transparent 13%),
+            radial-gradient(circle at 62% 28%, rgba(56,189,248,.34), transparent 36%),
+            radial-gradient(circle at 62% 46%, rgba(37,99,235,.15), transparent 56%);
           mix-blend-mode: screen;
-          animation: statuePulse 3.8s ease-in-out infinite;
+          animation: statuePulse 4.2s ease-in-out infinite;
         }
 
-        /* linhas finas animadas estilo tech/RJ */
-        .line {
+        .tech-line {
           position: absolute;
-          right: -8vw;
-          top: 7vh;
-          width: 52vw;
-          height: 24vh;
-          border-top: 1px solid rgba(255,255,255,.70);
-          border-radius: 50%;
           z-index: 4;
           pointer-events: none;
+          border-top: 1px solid rgba(255,255,255,.75);
+          border-radius: 50%;
           transform: rotate(-8deg);
-          animation: lineFloat 6.5s ease-in-out infinite alternate;
-          opacity: .72;
+          animation: lineFloat 7s ease-in-out infinite alternate;
         }
 
-        .line.two {
-          top: 12vh;
-          width: 60vw;
-          right: -12vw;
-          opacity: .48;
-          animation-duration: 9s;
+        .tech-line.one {
+          width: 52vw;
+          height: 22vh;
+          right: -8vw;
+          top: 8vh;
         }
 
-        .line.three {
-          top: auto;
-          bottom: 11vh;
-          width: 66vw;
-          right: -18vw;
-          opacity: .48;
-          animation-duration: 11s;
+        .tech-line.two {
+          width: 62vw;
+          height: 25vh;
+          right: -13vw;
+          top: 13vh;
+          opacity: .52;
+          animation-duration: 10s;
+        }
+
+        .tech-line.three {
+          width: 68vw;
+          height: 24vh;
+          right: -20vw;
+          bottom: 9vh;
+          opacity: .46;
+          animation-duration: 12s;
           animation-direction: alternate-reverse;
         }
 
-        /* onda leve no rodapé */
         .wave {
           position: absolute;
           left: -6%;
           right: -6%;
           bottom: -3%;
-          height: 18%;
+          height: 17%;
           z-index: 5;
           pointer-events: none;
           background: linear-gradient(
             180deg,
             transparent 0%,
-            rgba(37,99,235,.08) 55%,
-            rgba(37,99,235,.18) 100%
+            rgba(37,99,235,.07) 58%,
+            rgba(37,99,235,.16) 100%
           );
           clip-path: polygon(0 42%, 12% 50%, 26% 43%, 39% 51%, 52% 44%, 66% 52%, 80% 43%, 92% 51%, 100% 44%, 100% 100%, 0 100%);
-          animation: waveMove 5.5s ease-in-out infinite alternate;
+          animation: waveMove 6s ease-in-out infinite alternate;
         }
 
-        /* link invisível em cima do crédito/instagram */
         .instagram-link {
           position: absolute;
           left: 50%;
-          bottom: 1.7%;
+          bottom: 2.3%;
           transform: translateX(-50%);
-          width: min(470px, 80vw);
-          height: 46px;
+          width: min(460px, 80vw);
+          height: 44px;
           z-index: 20;
           border-radius: 999px;
         }
 
-        @keyframes bgBreath {
+        @keyframes bgMove {
           0% {
-            transform: scale(1);
-            filter: saturate(1) contrast(1);
+            transform: scale(1.06) translate3d(0,0,0);
           }
           100% {
-            transform: scale(1.018) translate3d(-.25%, .2%, 0);
-            filter: saturate(1.06) contrast(1.02);
+            transform: scale(1.1) translate3d(-.6%, .4%, 0);
           }
         }
 
-        @keyframes lightSweep {
+        @keyframes artFloat {
+          0% {
+            transform: scale(1);
+          }
+          100% {
+            transform: scale(1.006) translate3d(0, -3px, 0);
+          }
+        }
+
+        @keyframes shineMove {
           0%, 100% {
-            transform: translateX(-38%);
+            transform: translateX(-35%);
             opacity: .18;
           }
           50% {
-            transform: translateX(38%);
-            opacity: .72;
+            transform: translateX(35%);
+            opacity: .70;
           }
         }
 
         @keyframes statuePulse {
           0%, 100% {
-            opacity: .36;
+            opacity: .34;
             transform: scale(.98);
           }
           50% {
-            opacity: .84;
+            opacity: .82;
             transform: scale(1.04);
           }
         }
@@ -192,10 +226,10 @@ export default function Home() {
 
         @keyframes waveMove {
           from {
-            transform: translateX(-1.6%) translateY(0);
+            transform: translateX(-1.5%) translateY(0);
           }
           to {
-            transform: translateX(1.6%) translateY(7px);
+            transform: translateX(1.5%) translateY(8px);
           }
         }
 
@@ -208,51 +242,66 @@ export default function Home() {
             min-height: 100svh;
           }
 
-          .art img {
-            object-fit: cover;
-            object-position: 34% center;
+          .stage {
+            align-items: flex-start;
+          }
+
+          .stage img {
+            width: 100vw;
+            height: auto;
+            min-height: 100svh;
+            object-fit: contain;
+            object-position: top center;
+          }
+
+          .bg-fill {
+            background-position: center top;
           }
 
           .statue-glow {
-            right: -4%;
-            top: 8%;
+            right: -6%;
+            top: 7%;
             width: 42vw;
             height: 34vh;
           }
 
           .instagram-link {
             bottom: 12px;
-            height: 44px;
           }
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .art img,
-          .light-sweep,
+          .bg-fill,
+          .stage img,
+          .shine,
           .statue-glow,
-          .line,
+          .tech-line,
           .wave {
             animation: none !important;
           }
         }
       `}</style>
 
-      <section className="art" aria-label="Beleza Carioca - site no ar em breve">
+      <div className="bg-fill" />
+
+      <section className="stage" aria-label="Beleza Carioca - site no ar em breve">
         <img src="/mockup-rio.png" alt="Beleza Carioca - site no ar em breve" />
-        <div className="light-sweep" />
-        <div className="statue-glow" />
-        <div className="line" />
-        <div className="line two" />
-        <div className="line three" />
-        <div className="wave" />
-        <a
-          className="instagram-link"
-          href="https://www.instagram.com/gbdevapps/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Instagram de Gabriel Gonçalves"
-        />
       </section>
+
+      <div className="shine" />
+      <div className="statue-glow" />
+      <div className="tech-line one" />
+      <div className="tech-line two" />
+      <div className="tech-line three" />
+      <div className="wave" />
+
+      <a
+        className="instagram-link"
+        href="https://www.instagram.com/gbdevapps/"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Instagram de Gabriel Gonçalves"
+      />
     </main>
   );
 }
