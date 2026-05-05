@@ -2,15 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Beleza Carioca",
-  description: "Gestão premium para salões.",
+  title: "Beleza Carioca | Em construção",
+  description: "Plataforma premium de gestão e agendamento para salões, barbearias e profissionais da beleza.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
       <body>{children}</body>
