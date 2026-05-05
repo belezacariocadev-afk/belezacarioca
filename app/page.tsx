@@ -1,62 +1,82 @@
-export default function Home() {
+export default function Page() {
   return (
-    <main className="construction-page">
-      <section className="hero-shell">
-        <div className="hero-content">
-          <header className="brand-row" aria-label="Beleza Carioca">
-            <img
-              src="/logo-beleza-carioca.png"
-              alt="Beleza Carioca"
-              className="brand-logo"
-            />
-            <div>
-              <p className="brand-name">Beleza Carioca</p>
-              <p className="brand-subtitle">SaaS de agendamentos para salões</p>
-            </div>
-          </header>
+    <main className="landing-page">
+      <div className="rio-bg" aria-hidden="true" />
+      <div className="white-overlay" aria-hidden="true" />
+      <div className="soft-orb orb-one" aria-hidden="true" />
+      <div className="soft-orb orb-two" aria-hidden="true" />
 
-          <div className="status-pill">Em construção</div>
+      <section className="hero-shell">
+        <header className="brand-header">
+          <img
+            src="/logo-beleza-carioca-azul.png"
+            alt="Beleza Carioca"
+            className="brand-logo"
+          />
+        </header>
+
+        <div className="hero-content">
+          <p className="eyebrow">Site em construção</p>
 
           <h1 className="hero-title">
-            Estamos construindo algo incrível para transformar a beleza do Brasil.
+            Estamos construindo algo incrível para{" "}
+            <span>transformar a beleza do Brasil.</span>
           </h1>
 
-          <p className="hero-description">
-            Em breve, uma plataforma completa para salões, barbearias e profissionais da beleza gerenciarem agenda, clientes e serviços com praticidade.
+          <p className="hero-text">
+            Em breve, uma plataforma completa para salões, barbearias e
+            profissionais da beleza gerenciarem suas agendas, clientes e serviços
+            com mais facilidade.
           </p>
 
-          <div className="features-grid" aria-label="Recursos da plataforma">
-            <article className="feature-card">
-              <span>Agenda online</span>
-              <small>Horários organizados em tempo real.</small>
-            </article>
-            <article className="feature-card">
-              <span>Gestão de clientes</span>
-              <small>Histórico, contatos e preferências.</small>
-            </article>
-            <article className="feature-card">
-              <span>Serviços e equipe</span>
-              <small>Controle para profissionais da beleza.</small>
-            </article>
+          <div className="launch-card">
+            <div className="launch-icon">🔔</div>
+            <div className="launch-copy">
+              <strong>Lançamento em breve!</strong>
+              <span>Deixe seu contato e seja o primeiro a saber quando lançarmos.</span>
+            </div>
+            <a className="launch-button" href="https://www.instagram.com/gbdevapps/" target="_blank">
+              Quero saber
+              <span aria-hidden="true">→</span>
+            </a>
           </div>
-        </div>
 
-        <div className="hero-image-panel" aria-hidden="true">
-          <div className="floating-card card-top">
-            <strong>+ agendamentos</strong>
-            <span>menos trabalho manual</span>
-          </div>
-          <div className="floating-card card-bottom">
-            <strong>Rio de Janeiro</strong>
-            <span>beleza, tecnologia e gestão</span>
+          <div className="features-grid">
+            <article className="feature-card">
+              <div className="feature-icon">📅</div>
+              <h2>Agendamento online</h2>
+              <p>Mais praticidade para você e seus clientes.</p>
+            </article>
+
+            <article className="feature-card">
+              <div className="feature-icon">👥</div>
+              <h2>Gestão de clientes</h2>
+              <p>Organize informações e fidelize mais.</p>
+            </article>
+
+            <article className="feature-card">
+              <div className="feature-icon">📈</div>
+              <h2>Relatórios inteligentes</h2>
+              <p>Acompanhe resultados e tome melhores decisões.</p>
+            </article>
+
+            <article className="feature-card">
+              <div className="feature-icon">🛡️</div>
+              <h2>Segurança total</h2>
+              <p>Seus dados protegidos com tecnologia de ponta.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <footer className="page-footer">
-        <span>© 2026 Beleza Carioca.</span>
-        <a href="https://www.instagram.com/gbdevapps/" target="_blank" rel="noreferrer">
-          Desenvolvido por Gabriel Gonçalves
+      <footer className="site-footer">
+        <span>© 2026 Beleza Carioca. Todos os direitos reservados.</span>
+        <span className="footer-dot">♥</span>
+        <span>
+          Desenvolvido por <strong>Gabriel Gonçalves</strong>
+        </span>
+        <a href="https://www.instagram.com/gbdevapps/" target="_blank">
+          @gbdevapps
         </a>
       </footer>
     </main>
