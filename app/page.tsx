@@ -1,96 +1,64 @@
-const features = [
-  {
-    icon: "📅",
-    title: "Agendamento online",
-    text: "Mais praticidade para você e seus clientes.",
-  },
-  {
-    icon: "👥",
-    title: "Gestão de clientes",
-    text: "Organize informações e fidelize mais.",
-  },
-  {
-    icon: "📈",
-    title: "Relatórios inteligentes",
-    text: "Acompanhe resultados e tome melhores decisões.",
-  },
-  {
-    icon: "🛡️",
-    title: "Segurança total",
-    text: "Seus dados protegidos com tecnologia de ponta.",
-  },
-];
-
 export default function Home() {
   return (
-    <main className="bc-page">
-      <div className="bc-rio-bg" aria-hidden="true" />
-      <div className="bc-white-glow" aria-hidden="true" />
-      <div className="bc-blue-orb bc-blue-orb-one" aria-hidden="true" />
-      <div className="bc-blue-orb bc-blue-orb-two" aria-hidden="true" />
-      <div className="bc-lines" aria-hidden="true" />
+    <main className="construction-page">
+      <section className="hero-shell">
+        <div className="hero-content">
+          <header className="brand-row" aria-label="Beleza Carioca">
+            <img
+              src="/logo-beleza-carioca.png"
+              alt="Beleza Carioca"
+              className="brand-logo"
+            />
+            <div>
+              <p className="brand-name">Beleza Carioca</p>
+              <p className="brand-subtitle">SaaS de agendamentos para salões</p>
+            </div>
+          </header>
 
-      <section className="bc-shell">
-        <header className="bc-header">
-          <img
-            src="/logo-beleza-carioca.png"
-            alt="Beleza Carioca"
-            className="bc-logo"
-          />
-        </header>
+          <div className="status-pill">Em construção</div>
 
-        <div className="bc-hero">
-          <p className="bc-kicker">SITE EM CONSTRUÇÃO</p>
-
-          <h1>
-            Estamos construindo algo incrível para{" "}
-            <span>transformar a beleza do Brasil.</span>
+          <h1 className="hero-title">
+            Estamos construindo algo incrível para transformar a beleza do Brasil.
           </h1>
 
-          <p className="bc-description">
-            Em breve, uma plataforma completa para salões, barbearias e
-            profissionais da beleza gerenciarem suas agendas, clientes e
-            serviços com mais facilidade.
+          <p className="hero-description">
+            Em breve, uma plataforma completa para salões, barbearias e profissionais da beleza gerenciarem agenda, clientes e serviços com praticidade.
           </p>
 
-          <div className="bc-notify-card">
-            <div className="bc-bell">🔔</div>
-            <div className="bc-notify-text">
-              <strong>Lançamento em breve!</strong>
-              <span>Deixe seu contato e seja o primeiro a saber quando lançarmos.</span>
-            </div>
-            <a className="bc-button" href="mailto:gbdevappsbr@gmail.com">
-              Quero saber
-              <span>→</span>
-            </a>
+          <div className="features-grid" aria-label="Recursos da plataforma">
+            <article className="feature-card">
+              <span>Agenda online</span>
+              <small>Horários organizados em tempo real.</small>
+            </article>
+            <article className="feature-card">
+              <span>Gestão de clientes</span>
+              <small>Histórico, contatos e preferências.</small>
+            </article>
+            <article className="feature-card">
+              <span>Serviços e equipe</span>
+              <small>Controle para profissionais da beleza.</small>
+            </article>
           </div>
         </div>
 
-        <div className="bc-features" aria-label="Recursos da plataforma">
-          {features.map((item) => (
-            <article className="bc-feature" key={item.title}>
-              <div className="bc-feature-icon">{item.icon}</div>
-              <h2>{item.title}</h2>
-              <p>{item.text}</p>
-            </article>
-          ))}
+        <div className="hero-image-panel" aria-hidden="true">
+          <div className="floating-card card-top">
+            <strong>+ agendamentos</strong>
+            <span>menos trabalho manual</span>
+          </div>
+          <div className="floating-card card-bottom">
+            <strong>Rio de Janeiro</strong>
+            <span>beleza, tecnologia e gestão</span>
+          </div>
         </div>
-
-        <footer className="bc-footer">
-          <span>© 2026 Beleza Carioca. Todos os direitos reservados.</span>
-          <span className="bc-heart">♥</span>
-          <span>
-            Desenvolvido por <strong>Gabriel Gonçalves</strong>
-          </span>
-          <a
-            href="https://www.instagram.com/gbdevapps/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            @gbdevapps
-          </a>
-        </footer>
       </section>
+
+      <footer className="page-footer">
+        <span>© 2026 Beleza Carioca.</span>
+        <a href="https://www.instagram.com/gbdevapps/" target="_blank" rel="noreferrer">
+          Desenvolvido por Gabriel Gonçalves
+        </a>
+      </footer>
     </main>
   );
 }
