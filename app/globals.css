@@ -26,12 +26,89 @@ a {
   text-decoration: none;
 }
 
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(18, 103, 255, 0.16), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(56, 189, 248, 0.18), transparent 34%),
+    linear-gradient(135deg, #ffffff 0%, #eef6ff 100%);
+  transition: opacity 0.55s ease, visibility 0.55s ease;
+}
+
+.loading-screen-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading-card {
+  width: min(420px, 100%);
+  padding: 34px;
+  border: 1px solid rgba(18, 103, 255, 0.12);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 28px 90px rgba(7, 27, 70, 0.12);
+  backdrop-filter: blur(16px);
+  text-align: center;
+}
+
+.loading-logo {
+  width: min(250px, 82%);
+  height: auto;
+  display: block;
+  margin: 0 auto 18px;
+}
+
+.loading-card p {
+  margin: 0 0 18px;
+  color: #60708a;
+  line-height: 1.5;
+}
+
+.loading-card strong {
+  display: block;
+  color: #1267ff;
+  font-size: 2.1rem;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.loading-bar {
+  width: 100%;
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #dceaff;
+}
+
+.loading-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #1267ff, #38bdf8);
+  box-shadow: 0 0 22px rgba(18, 103, 255, 0.42);
+  transition: width 0.14s linear;
+}
+
 .construction-page {
   position: relative;
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
   isolation: isolate;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.construction-page.page-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .background {
