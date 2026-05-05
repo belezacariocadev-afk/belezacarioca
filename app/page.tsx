@@ -140,11 +140,39 @@ export default function Page() {
         </section>
 
         <footer className="footer-credit">
-          <span>© 2026 Beleza Carioca. Todos os direitos reservados.</span>
-          <span className="footer-divider">|</span>
-          <a href="https://www.instagram.com/gbdevapps/" target="_blank" rel="noreferrer">
-            Desenvolvido por Gabriel Gonçalves · @gbdevapps
-          </a>
+          <div className="footer-copy">
+            <span>© 2026 Beleza Carioca. Todos os direitos reservados.</span>
+            <span className="footer-divider">|</span>
+            <a href="https://www.instagram.com/gbdevapps/" target="_blank" rel="noreferrer">
+              Desenvolvido por Gabriel Gonçalves · @gbdevapps
+            </a>
+          </div>
+
+          <nav className="social-links" aria-label="Redes sociais da Beleza Carioca">
+            <a
+              href="https://www.instagram.com/comercialbelezacarioca/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram Comercial Beleza Carioca"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm4.2 3.2A4.8 4.8 0 1 1 12 16.8a4.8 4.8 0 0 1 0-9.6Zm0 2A2.8 2.8 0 1 0 12 14.8a2.8 2.8 0 0 0 0-5.6Zm5-2.15a1.15 1.15 0 1 1-1.15 1.15A1.15 1.15 0 0 1 17 7.05Z" />
+              </svg>
+              <span>Instagram</span>
+            </a>
+
+            <a
+              href="https://www.facebook.com/profile.php?id=61588905107980"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook Beleza Carioca"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 8.6V6.9c0-.82.19-1.23 1.12-1.23H17V2.22C16.68 2.18 15.58 2 14.3 2 11.64 2 9.82 3.62 9.82 6.6v2H7v3.86h2.82V22h4.24v-9.54h2.88l.44-3.86H14Z" />
+              </svg>
+              <span>Facebook</span>
+            </a>
+          </nav>
         </footer>
       </main>
     </>
