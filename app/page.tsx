@@ -1,91 +1,96 @@
 const features = [
   {
+    icon: "📅",
     title: "Agendamento online",
     text: "Mais praticidade para você e seus clientes.",
-    icon: "📅",
   },
   {
+    icon: "👥",
     title: "Gestão de clientes",
     text: "Organize informações e fidelize mais.",
-    icon: "👥",
   },
   {
+    icon: "📈",
     title: "Relatórios inteligentes",
     text: "Acompanhe resultados e tome melhores decisões.",
-    icon: "📈",
   },
   {
+    icon: "🛡️",
     title: "Segurança total",
     text: "Seus dados protegidos com tecnologia de ponta.",
-    icon: "🛡️",
   },
 ];
 
-export default function Page() {
+export default function Home() {
   return (
-    <main className="home-page">
-      <div className="background" aria-hidden="true">
-        <img src="/rio-bg.png" alt="" className="background-image" />
-        <div className="white-overlay" />
-        <div className="blue-glow glow-one" />
-        <div className="blue-glow glow-two" />
-      </div>
+    <main className="bc-page">
+      <div className="bc-rio-bg" aria-hidden="true" />
+      <div className="bc-white-glow" aria-hidden="true" />
+      <div className="bc-blue-orb bc-blue-orb-one" aria-hidden="true" />
+      <div className="bc-blue-orb bc-blue-orb-two" aria-hidden="true" />
+      <div className="bc-lines" aria-hidden="true" />
 
-      <section className="content-wrap">
-        <header className="header">
+      <section className="bc-shell">
+        <header className="bc-header">
           <img
             src="/logo-beleza-carioca.png"
             alt="Beleza Carioca"
-            className="logo"
+            className="bc-logo"
           />
         </header>
 
-        <section className="hero-content">
-          <p className="kicker">Site em construção</p>
+        <div className="bc-hero">
+          <p className="bc-kicker">SITE EM CONSTRUÇÃO</p>
 
           <h1>
             Estamos construindo algo incrível para{" "}
             <span>transformar a beleza do Brasil.</span>
           </h1>
 
-          <p className="description">
+          <p className="bc-description">
             Em breve, uma plataforma completa para salões, barbearias e
             profissionais da beleza gerenciarem suas agendas, clientes e
             serviços com mais facilidade.
           </p>
 
-          <div className="launch-card">
-            <div className="bell">🔔</div>
-            <div className="launch-text">
+          <div className="bc-notify-card">
+            <div className="bc-bell">🔔</div>
+            <div className="bc-notify-text">
               <strong>Lançamento em breve!</strong>
-              <p>Deixe seu contato e seja o primeiro a saber quando lançarmos.</p>
+              <span>Deixe seu contato e seja o primeiro a saber quando lançarmos.</span>
             </div>
-            <input type="email" placeholder="Seu melhor e-mail" />
-            <button>Quero saber →</button>
+            <a className="bc-button" href="mailto:gbdevappsbr@gmail.com">
+              Quero saber
+              <span>→</span>
+            </a>
           </div>
+        </div>
 
-          <div className="features">
-            {features.map((feature) => (
-              <article className="feature" key={feature.title}>
-                <div className="feature-icon">{feature.icon}</div>
-                <h2>{feature.title}</h2>
-                <p>{feature.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+        <div className="bc-features" aria-label="Recursos da plataforma">
+          {features.map((item) => (
+            <article className="bc-feature" key={item.title}>
+              <div className="bc-feature-icon">{item.icon}</div>
+              <h2>{item.title}</h2>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+
+        <footer className="bc-footer">
+          <span>© 2026 Beleza Carioca. Todos os direitos reservados.</span>
+          <span className="bc-heart">♥</span>
+          <span>
+            Desenvolvido por <strong>Gabriel Gonçalves</strong>
+          </span>
+          <a
+            href="https://www.instagram.com/gbdevapps/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            @gbdevapps
+          </a>
+        </footer>
       </section>
-
-      <footer className="footer">
-        <span>© 2026 Beleza Carioca. Todos os direitos reservados.</span>
-        <span className="heart">♥</span>
-        <span>
-          Desenvolvido por <strong>Gabriel Gonçalves</strong>
-        </span>
-        <a href="https://www.instagram.com/gbdevapps/" target="_blank" rel="noreferrer">
-          @gbdevapps
-        </a>
-      </footer>
     </main>
   );
 }
