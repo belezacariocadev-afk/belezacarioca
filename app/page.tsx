@@ -17,7 +17,7 @@ export default function Page() {
 
         return Math.min(current + 1, 100);
       });
-    }, 55);
+    }, 100);
 
     return () => window.clearInterval(interval);
   }, []);
