@@ -11,14 +11,13 @@ export default function Page() {
       setProgress((current) => {
         if (current >= 100) {
           window.clearInterval(interval);
-          window.setTimeout(() => setLoaded(true), 380);
+          window.setTimeout(() => setLoaded(true), 650);
           return 100;
         }
 
-        const increment = current < 70 ? 4 : current < 92 ? 2 : 1;
-        return Math.min(current + increment, 100);
+        return Math.min(current + 1, 100);
       });
-    }, 45);
+    }, 55);
 
     return () => window.clearInterval(interval);
   }, []);
