@@ -3,7 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Beleza Carioca | Em construção",
-  description: "Plataforma premium de gestão e agendamento para salões, barbearias e profissionais da beleza.",
+  description:
+    "Plataforma de gestão e agendamento para salões, barbearias e profissionais da beleza.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

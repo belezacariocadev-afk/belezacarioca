@@ -32,10 +32,49 @@ export default function Page() {
             <strong>Lançamento em breve!</strong>
             <span>Estamos preparando uma experiência simples, bonita e profissional.</span>
           </div>
-          <a className="notify-button" href="https://www.instagram.com/gbdevapps/" target="_blank" rel="noreferrer">
-            Acompanhar
-          </a>
         </div>
+
+        <form
+          className="question-card"
+          action="https://formsubmit.co/belezacarioca.dev@gmail.com"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="Nova dúvida no site Beleza Carioca" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.belezacariocarj.com.br/obrigado" />
+
+          <div className="question-header">
+            <span>💬</span>
+            <div>
+              <strong>Tem dúvidas ou sugestões?</strong>
+              <p>Envie sua pergunta. A mensagem vai direto para o e-mail da Beleza Carioca.</p>
+            </div>
+          </div>
+
+          <div className="form-grid">
+            <label>
+              Nome
+              <input name="nome" type="text" placeholder="Seu nome" required />
+            </label>
+            <label>
+              E-mail ou WhatsApp
+              <input name="contato" type="text" placeholder="Como podemos responder?" required />
+            </label>
+          </div>
+
+          <label>
+            Sua dúvida
+            <textarea
+              name="duvida"
+              placeholder="Digite sua dúvida, sugestão ou o que gostaria de ver na plataforma..."
+              rows={4}
+              required
+            />
+          </label>
+
+          <button type="submit">Enviar dúvida</button>
+        </form>
 
         <div className="features-grid" aria-label="Recursos da plataforma">
           <article>
